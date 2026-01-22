@@ -1,1 +1,25 @@
-/* Styles moved as-is from approved build */
+/* --- Low-lift polish (centered layout + proof + icons) --- */
+.hero__content{ text-align:center; }
+.hero__subtitle, .hero__note{ margin-left:auto; margin-right:auto; }
+.hero__highlights{ justify-content:center; }
+
+.proof{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  margin:10px auto 0;
+  padding:10px 12px;
+  border-radius:999px;
+  background: rgba(255,255,255,.78);
+  border:1px solid var(--line);
+  font-weight:800;
+  font-size:13px;
+  color: rgba(23,19,27,.82);
+}
+.proof__stars{letter-spacing:.12em; color:#f1b100}
+
+/* Icons */
+.ico{width:18px; height:18px; display:inline-block; flex:0 0 auto;}
+.contact{ text-align:center; }
+.contact__label{display:flex; align-items:center; justify-content
