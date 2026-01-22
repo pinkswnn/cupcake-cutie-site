@@ -9,27 +9,46 @@
 
 const CONFIG = {
   bakesyOrderUrl: "https://bakesy.shop/b/cupcake-cutie-co-gourmet-cupcakes",
-  googleReviewsUrl: "https://www.google.com/gasearch?q=cupcake%20cutie%20co&source=sh/x/gs/m2/5&utm_campaign=27387-or-igacx-srp-shrbtn-iga-sharing#ebo=0&mpd=~10575323090193076198/customers/reviews",
-  instagramUrl: "https://www.instagram.com/cupcakecutieco?igsh=MWJyMXdnYXVoYjZkcA%3D%3D&utm_source=qr"
+  googleReviewsUrl:
+    "https://www.google.com/gasearch?q=cupcake%20cutie%20co&source=sh/x/gs/m2/5&utm_campaign=27387-or-igacx-srp-shrbtn-iga-sharing#ebo=0&mpd=~10575323090193076198/customers/reviews",
+  instagramUrl:
+    "https://www.instagram.com/cupcakecutieco?igsh=MWJyMXdnYXVoYjZkcA%3D%3D&utm_source=qr"
 };
+
+/**
+ * Only replace href if:
+ * - href is missing, "#", or clearly a placeholder (contains REPLACE)
+ * This keeps you safe if you ever hardcode links in HTML again.
+ */
+function safeSetHref(el, url) {
+  if (!el || !url) return;
+  const current = (el.getAttribute("href") || "").trim();
+  const looksPlaceholder =
+    !current ||
+    current === "#" ||
+    current.toUpperCase().includes("REPLACE") ||
+    current.includes("REPLACE-WITH");
+
+  if (looksPlaceholder) el.setAttribute("href", url);
+}
 
 // ---- Wire primary links (one source of truth)
 document.querySelectorAll("[data-order-link]").forEach(el => {
-  el.setAttribute("href", CONFIG.bakesyOrderUrl);
+  safeSetHref(el, CONFIG.bakesyOrderUrl);
   el.setAttribute("target", "_blank");
   el.setAttribute("rel", "noopener");
 });
 
 const reviews = document.querySelector("[data-google-reviews]");
 if (reviews) {
-  reviews.setAttribute("href", CONFIG.googleReviewsUrl);
+  safeSetHref(reviews, CONFIG.googleReviewsUrl);
   reviews.setAttribute("target", "_blank");
   reviews.setAttribute("rel", "noopener");
 }
 
 const ig = document.querySelector("[data-instagram]");
 if (ig) {
-  ig.setAttribute("href", CONFIG.instagramUrl);
+  safeSetHref(ig, CONFIG.instagramUrl);
   ig.setAttribute("target", "_blank");
   ig.setAttribute("rel", "noopener");
 }
@@ -97,7 +116,7 @@ faqButtons.forEach(btn => {
   });
 });
 
-// ---- Back to top visibility + year
+// ---- Back to top visibility
 const backToTop = document.querySelector("[data-back-to-top]");
 const setYear = document.querySelector("[data-year]");
 if (setYear) setYear.textContent = new Date().getFullYear();
