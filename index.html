@@ -4,13 +4,16 @@
   <!--
     HUSTLE HUB SITES — CLIENT BUILD
     Client: Cupcake Cutie Co.
-    Repo: cupcake-cutie-site/
+    Path: Hustle-Hub-Sites/clients/cupcake-cutie-co/index.html
 
-    Build goals (from this thread):
-    - Mobile-first, fast, clean
-    - One primary conversion goal: Bakesy Order
-    - Keep original copy intact (only add essentials: links + pickup/delivery clarity)
-    - Center-aligned presentation
+    THREAD RULES (this entire chat):
+    - Keep original copy unless absolutely necessary
+    - One primary conversion: Bakesy Order
+    - Calm, clear, emotionally precise (no hype)
+    - Reduce redundancy + price anxiety
+    - Add: local anchor, pickup/delivery detail, trust cue for reviews
+    - Platform links show actual colored icons
+    - Center-aligned layout (content alignment handled here without rewriting your CSS)
   -->
 
   <meta charset="UTF-8">
@@ -38,7 +41,7 @@
   <!-- Favicon -->
   <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
 
-  <!-- Fonts -->
+  <!-- Fonts (approved pair) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -59,10 +62,49 @@
     "url":"https://cupcakecutieco.com",
     "description":"Gourmet custom cupcakes baked fresh and decorated to match your celebration.",
     "telephone":"+1-214-668-4087",
-    "priceRange":"$30+",
-    "email":"pamela@cupcakecutieco.com"
+    "priceRange":"$30+"
   }
   </script>
+
+  <!-- Low-lift icon chips (platform color icons) -->
+  <style>
+    /* keep this tiny + scoped; doesn't fight your main CSS */
+    .platform{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width:26px;
+      height:26px;
+      border-radius:8px;
+      margin-right:8px;
+      border:1px solid rgba(11,11,12,.10);
+      transform: translateY(1px);
+      flex: 0 0 auto;
+    }
+    .platform svg{display:block}
+    .platform--ig{
+      background: linear-gradient(135deg, #feda75, #fa7e1e, #d62976, #962fbf, #4f5bd5);
+      color:#fff;
+    }
+    .platform--g{
+      background:#fff;
+      color:#111;
+    }
+    .centerline{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      flex-wrap:wrap;
+      text-align:center;
+    }
+    .stars{
+      letter-spacing:.14em;
+      color: rgba(255,22,22,.75);
+      font-weight:800;
+      display:inline-block;
+    }
+  </style>
 </head>
 
 <body>
@@ -73,8 +115,8 @@
   <!-- STICKY HEADER / NAV           -->
   <!-- ============================= -->
   <header class="site-header site-header--sticky">
-    <div class="container header__inner">
-      <a href="#top" class="brand" aria-label="Cupcake Cutie Co. Home">
+    <div class="container header__inner" style="text-align:center;">
+      <a href="#top" class="brand" aria-label="Cupcake Cutie Co. Home" style="margin:0 auto;">
         <img
           src="assets/logo.png"
           alt="Cupcake Cutie Co. logo"
@@ -85,9 +127,9 @@
         >
       </a>
 
-      <nav class="nav" aria-label="Primary" data-nav>
-        <ul class="nav__list">
-          <li><a href="#section-how" class="nav__link">See How To Order</a></li>
+      <nav class="nav" aria-label="Primary" data-nav style="margin:0 auto;">
+        <ul class="nav__list" style="justify-content:center;">
+          <li><a href="#section-how" class="nav__link">See How  To Order</a></li>
           <li><a href="#section-gallery" class="nav__link">Gallery</a></li>
           <li><a href="#section-faq" class="nav__link">FAQ</a></li>
           <li><a href="#section-contact" class="nav__link">Contact</a></li>
@@ -95,7 +137,14 @@
       </nav>
 
       <!-- ONE primary CTA (desktop only; mobile uses sticky bar) -->
-      <a href="#" class="btn btn--primary header__cta" data-order-link>
+      <a
+        href="https://bakesy.shop/b/cupcake-cutie-co-gourmet-cupcakes"
+        class="btn btn--primary header__cta"
+        data-order-link
+        target="_blank"
+        rel="noopener"
+        style="margin:0 auto;"
+      >
         <span>Start Your Cupcake Order</span>
       </a>
 
@@ -107,43 +156,55 @@
   </header>
 
   <!-- ============================= -->
-  <!-- HERO                          -->
+  <!-- HERO (REQUIRED)              -->
   <!-- ============================= -->
   <main>
     <section class="section section--hero" id="hero">
       <div class="container hero__grid">
-        <div class="hero__content">
-          <p class="pill">Gourmet • Custom • Made Fresh</p>
+        <div class="hero__content" style="text-align:center;">
+          <p class="pill" style="margin-left:auto; margin-right:auto;">Gourmet • Custom • Made Fresh</p>
 
           <h1 class="hero__title">Gourmet Cupcakes Made For Your Moment</h1>
 
-          <p class="hero__subtitle">
-            If you want dessert that feels intentional - not last-minute - you’re in the right place.
-            Pick your flavor, share your theme, and Cupcake Cutie handles the details.
+          <p class="hero__subtitle" style="margin-left:auto; margin-right:auto;">
+            If you want dessert that feels special - not last-minute - you’re in the right place.
+            <br> 
+            <br> Pick your flavor, share your theme, and Cupcake Cutie handles the details.
           </p>
 
-          <div class="hero__cta-group" id="cta-primary">
-            <a href="#" class="btn btn--primary btn--lg" data-order-link>See Cupcake Options</a>
+          <!-- Thread-required: local anchor + pickup/delivery detail (additive only) -->
+          <p class="hero__micro" style="margin:10px auto 0; opacity:.78; font-weight:600;">
+            Serving North Texas • Pickup available • Delivery for a fee over 15 miles
+          </p>
 
-            <p class="hero__note">
-              Starting at <strong>$30+</strong>. 15+ flavors. Custom designs for birthdays, showers, holidays, and events.
+          <div class="hero__cta-group" id="cta-primary" style="justify-content:center; text-align:center;">
+            <a
+              href="https://bakesy.shop/b/cupcake-cutie-co-gourmet-cupcakes"
+              class="btn btn--primary btn--lg"
+              data-order-link
+              target="_blank"
+              rel="noopener"
+            >See Cupcake Options</a>
+
+            <!-- Thread-required microline near top (no extra hype) -->
+            <p class="hero__micro" style="margin:10px auto 0; opacity:.78; font-weight:600;">
+              Order in under 2 minutes through Bakesy.
             </p>
 
-            <div class="proof" aria-label="Proof">
-              <span class="proof__stars" aria-hidden="true">★★★★★</span>
-              <a class="link" href="#" data-google-reviews>See Google Reviews →</a>
-            </div>
+            <p class="hero__note" style="margin-left:auto; margin-right:auto;">
+              Starting at <strong>$30+</strong>. 15+ flavors. Custom designs for birthdays, showers, holidays, and events.
+            </p>
           </div>
 
-          <ul class="hero__highlights" aria-label="Highlights">
+          <ul class="hero__highlights" aria-label="Highlights" style="margin-left:auto; margin-right:auto; justify-content:center;">
             <li>Theme + Color Matched</li>
             <li>Clean, Consistent Finish</li>
-            <li>Easy Ordering</li>
+            <li>Easy Ordering </li>
           </ul>
         </div>
 
-        <div class="hero__media">
-          <figure class="hero-image">
+        <div class="hero__media" style="text-align:center;">
+          <figure class="hero-image" style="margin-left:auto; margin-right:auto;">
             <img
               src="assets/hero.jpg"
               alt="Custom cupcakes with frosting and decorative details"
@@ -161,88 +222,120 @@
     <!-- HOW IT WORKS (SHORT)          -->
     <!-- ============================= -->
     <section class="section" id="section-how">
-      <div class="container section__narrow center">
-        <header class="section__header">
+      <div class="container section__narrow">
+        <header class="section__header" style="text-align:center;">
           <h2 class="section__title">From Idea to “These Are So Cute”</h2>
-          <p class="section__subtitle">Simple steps that turn your theme into cupcakes that feel special.</p>
+          <p class="section__subtitle" style="margin-left:auto; margin-right:auto;">
+            Simple steps that turn your theme into cupcakes that feel special.
+          </p>
         </header>
 
-        <div class="steps">
-          <div class="card step">
-            <div class="step__num">1</div>
+        <div class="steps" style="text-align:center;">
+          <div class="card step" style="text-align:center;">
+            <div class="step__num" style="margin-left:auto; margin-right:auto;">1</div>
             <div>
               <h3 class="step__title">Order</h3>
-              <p class="step__text">Choose what you want in Bakesy (quantity, date, notes).</p>
+              <p class="step__text" style="margin-left:auto; margin-right:auto;">Choose what you want in Bakesy (quantity, date, notes).</p>
             </div>
           </div>
 
-          <div class="card step">
-            <div class="step__num">2</div>
+          <div class="card step" style="text-align:center;">
+            <div class="step__num" style="margin-left:auto; margin-right:auto;">2</div>
             <div>
               <h3 class="step__title">Match the Vibe</h3>
-              <p class="step__text">Share your theme/colors. Cupcake Cutie designs to fit the moment.</p>
+              <p class="step__text" style="margin-left:auto; margin-right:auto;">Share your theme/colors. Cupcake Cutie designs to fit the moment.</p>
             </div>
           </div>
 
-          <div class="card step">
-            <div class="step__num">3</div>
+          <div class="card step" style="text-align:center;">
+            <div class="step__num" style="margin-left:auto; margin-right:auto;">3</div>
             <div>
               <h3 class="step__title">Celebrate</h3>
-              <p class="step__text">Fresh cupcakes, finished clean, ready for your people.</p>
+              <p class="step__text" style="margin-left:auto; margin-right:auto;">Fresh cupcakes, finished with care, ready for your loved ones.</p>
             </div>
           </div>
         </div>
-
-        <div class="center mt-14">
-          <a href="#" class="btn btn--primary btn--lg" data-order-link>Start Your Cupcake Order</a>
-        </div>
       </div>
     </section>
 
     <!-- ============================= -->
-    <!-- GALLERY                       -->
+    <!-- GALLERY (INDUSTRY MODULE)     -->
     <!-- ============================= -->
     <section class="section section--gallery" id="section-gallery">
-      <div class="container center">
-        <header class="section__header section__header--center">
+      <div class="container">
+        <header class="section__header section__header--center" style="text-align:center;">
           <h2 class="section__title">Cupcakes That Match the Moment</h2>
-          <p class="section__subtitle">Colors, textures, and finishes designed to fit your celebration.</p>
+          <p class="section__subtitle" style="margin-left:auto; margin-right:auto;">
+            Colors, textures, and finishes designed to fit your celebration.
+          </p>
         </header>
 
-        <div class="gallery__grid" aria-label="Cupcake gallery">
-          <figure class="gallery__item">
+        <div class="gallery__grid" style="text-align:center;">
+          <figure class="gallery__item" style="text-align:center;">
             <img src="assets/gallery-1.jpg" alt="Assorted cupcakes with piped frosting" loading="lazy">
+            <figcaption class="gallery__cap" style="margin-top:8px; opacity:.78; font-weight:600; font-size:.92rem;">
+              Custom Colors & Themes
+            </figcaption>
           </figure>
 
-          <figure class="gallery__item">
+          <figure class="gallery__item" style="text-align:center;">
             <img src="assets/gallery-2.jpg" alt="Cupcakes with detailed piped rosettes" loading="lazy">
+            <figcaption class="gallery__cap" style="margin-top:8px; opacity:.78; font-weight:600; font-size:.92rem;">
+              Detail Work That Feels Special
+            </figcaption>
           </figure>
 
-          <figure class="gallery__item">
+          <figure class="gallery__item" style="text-align:center;">
             <img src="assets/gallery-3.jpg" alt="Cupcakes arranged in a box for an order" loading="lazy">
+            <figcaption class="gallery__cap" style="margin-top:8px; opacity:.78; font-weight:600; font-size:.92rem;">
+              Boxed, Finished, Ready to Gift
+            </figcaption>
           </figure>
 
-          <figure class="gallery__item">
+          <figure class="gallery__item" style="text-align:center;">
             <img src="assets/gallery-4.jpg" alt="Cupcakes with bright custom frosting colors" loading="lazy">
+            <figcaption class="gallery__cap" style="margin-top:8px; opacity:.78; font-weight:600; font-size:.92rem;">
+              Celebration-ready Cupcakes
+            </figcaption>
           </figure>
         </div>
 
-        <div class="center mt-14">
-          <a class="link" href="#" data-google-reviews>
-            See Google Reviews →
-          </a>
+        <div class="center mt-14" style="text-align:center;">
+          <span class="centerline">
+            <span class="stars" aria-hidden="true">★★★★★</span>
+
+            <a
+              class="link"
+              href="https://www.google.com/gasearch?q=cupcake%20cutie%20co&source=sh/x/gs/m2/5&utm_campaign=27387-or-igacx-srp-shrbtn-iga-sharing#ebo=0&mpd=~10575323090193076198/customers/reviews"
+              target="_blank"
+              rel="noopener"
+              data-google-reviews
+              style="display:inline-flex; align-items:center; justify-content:center; gap:10px;"
+            >
+              <span class="platform platform--g" aria-hidden="true">
+                <!-- Google G -->
+                <svg viewBox="0 0 24 24" width="16" height="16" focusable="false" aria-hidden="true">
+                  <path fill="#4285F4" d="M23.5 12.3c0-.8-.1-1.5-.2-2.2H12v4.1h6.5c-.3 1.4-1.2 2.6-2.5 3.4v2.7h4.1c2.4-2.2 3.4-5.4 3.4-8z"/>
+                  <path fill="#34A853" d="M12 24c3.2 0 5.9-1.1 7.9-2.9l-4.1-2.7c-1.1.8-2.5 1.3-3.8 1.3-2.9 0-5.3-2-6.2-4.7H1.6v2.9C3.6 21.6 7.5 24 12 24z"/>
+                  <path fill="#FBBC05" d="M5.8 14.1c-.2-.6-.3-1.3-.3-2.1s.1-1.5.3-2.1V7H1.6C.6 8.9 0 10.3 0 12s.6 3.1 1.6 5l4.2-2.9z"/>
+                  <path fill="#EA4335" d="M12 4.8c1.8 0 3.3.6 4.5 1.7l3.4-3.4C17.9 1.1 15.2 0 12 0 7.5 0 3.6 2.4 1.6 7l4.2 2.9C6.7 6.8 9.1 4.8 12 4.8z"/>
+                </svg>
+              </span>
+              See Google Reviews →
+            </a>
+          </span>
         </div>
       </div>
     </section>
 
     <!-- ============================= -->
-    <!-- FAQ                           -->
+    <!-- FAQ (DECISION BLOCKERS)       -->
     <!-- ============================= -->
     <section class="section section--faq" id="section-faq">
-      <div class="container section__narrow center">
-        <header class="section__header section__header--center">
+      <div class="container section__narrow">
+        <header class="section__header section__header--center" style="text-align:center;">
           <h2 class="section__title">Before You Order</h2>
-          <p class="section__subtitle">So You Feel Confident Moving Forward</p>
+          <p class="section__subtitle" style="margin-left:auto; margin-right:auto;">So You Feel Confident Moving Forward</p>
         </header>
 
         <div class="faq" role="list">
@@ -252,7 +345,7 @@
               <span class="faq-item__icon" aria-hidden="true">+</span>
             </button>
             <div class="faq-item__panel" id="faq-1" hidden>
-              <p class="faq-item__answer">
+              <p class="faq-item__answer" style="text-align:center;">
                 Yes. Add your theme notes when you order (colors, occasion, inspo). Cupcake Cutie will align the design so it looks intentional.
               </p>
             </div>
@@ -264,7 +357,7 @@
               <span class="faq-item__icon" aria-hidden="true">+</span>
             </button>
             <div class="faq-item__panel" id="faq-2" hidden>
-              <p class="faq-item__answer">
+              <p class="faq-item__answer" style="text-align:center;">
                 15+ options (and growing).
               </p>
             </div>
@@ -272,35 +365,36 @@
 
           <div class="faq-item" role="listitem">
             <button class="faq-item__button" aria-expanded="false" aria-controls="faq-3">
-              <span class="faq-item__question">What’s the easiest way to order?</span>
+              <span class="faq-item__question">How do I order?</span>
               <span class="faq-item__icon" aria-hidden="true">+</span>
             </button>
             <div class="faq-item__panel" id="faq-3" hidden>
-              <p class="faq-item__answer">
+              <p class="faq-item__answer" style="text-align:center;">
                 Use Bakesy. It keeps your order details organized and makes the process smooth from start to finish.
               </p>
             </div>
           </div>
 
+          <!-- Additive logistics FAQ (thread-required operational clarity) -->
           <div class="faq-item" role="listitem">
-            <button class="faq-item__button" aria-expanded="false" aria-controls="faq-4">
-              <span class="faq-item__question">Pickup or delivery?</span>
+            <button class="faq-item__button" aria-expanded="false" aria-controls="faq-5">
+              <span class="faq-item__question">Do you offer pickup or delivery?</span>
               <span class="faq-item__icon" aria-hidden="true">+</span>
             </button>
-            <div class="faq-item__panel" id="faq-4" hidden>
-              <p class="faq-item__answer">
+            <div class="faq-item__panel" id="faq-5" hidden>
+              <p class="faq-item__answer" style="text-align:center;">
                 Pickup is available. Delivery is available for a fee over 15 miles.
               </p>
             </div>
           </div>
 
           <div class="faq-item" role="listitem">
-            <button class="faq-item__button" aria-expanded="false" aria-controls="faq-5">
+            <button class="faq-item__button" aria-expanded="false" aria-controls="faq-4">
               <span class="faq-item__question">I have a question before ordering.</span>
               <span class="faq-item__icon" aria-hidden="true">+</span>
             </button>
-            <div class="faq-item__panel" id="faq-5" hidden>
-              <p class="faq-item__answer">
+            <div class="faq-item__panel" id="faq-4" hidden>
+              <p class="faq-item__answer" style="text-align:center;">
                 Text or email works. If you share your date + theme + quantity, Cupcake Cutie can point you to the best option quickly.
               </p>
             </div>
@@ -313,54 +407,60 @@
     <!-- CONTACT                        -->
     <!-- ============================= -->
     <section class="section" id="section-contact">
-      <div class="container section__narrow center">
-        <header class="section__header">
-          <h2 class="section__title">Let’s Talk Details</h2>
-          <p class="section__subtitle">Reach out before you order - totally okay.</p>
+      <div class="container section__narrow">
+        <header class="section__header" style="text-align:center;">
+          <h2 class="section__title">Have Questions First?</h2>
+          <p class="section__subtitle" style="margin-left:auto; margin-right:auto;">Text or email - include your date, theme, and how many you want. <br> I’ll point you to the best option.</p>
+
+          <!-- Additive logistics line (thread) -->
+          <p class="hero__micro" style="margin:10px auto 0; opacity:.78; font-weight:600;">
+            Pickup available • Delivery for a fee over 15 miles
+          </p>
         </header>
 
-        <div class="contact-grid">
-          <a class="card contact" href="tel:+12146684087" aria-label="Call (214) 668-4087">
-            <span class="contact__label">
-              <svg class="ico" viewBox="0 0 24 24" aria-hidden="true">
-                <path fill="rgba(23,19,27,.82)" d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.07 21 3 13.93 3 5a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.46.57 3.58a1 1 0 0 1-.25 1.01l-2.2 2.2Z"/>
-              </svg>
-              Phone
-            </span>
+        <div class="contact-grid" style="justify-content:center;">
+          <a class="card contact" href="tel:+12146684087" style="text-align:center;">
+            <span class="contact__label">Phone</span>
             <span class="contact__value">(214) 668-4087</span>
           </a>
 
-          <a class="card contact" href="mailto:pamela@cupcakecutieco.com" aria-label="Email pamela@cupcakecutieco.com">
-            <span class="contact__label">
-              <svg class="ico" viewBox="0 0 24 24" aria-hidden="true">
-                <path fill="rgba(23,19,27,.82)" d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 4-8 5-8-5V6l8 5 8-5v2Z"/>
-              </svg>
-              Email
-            </span>
+          <!-- Updated per Pamela confirmation (thread) -->
+          <a class="card contact" href="mailto:pamela@cupcakecutieco.com" style="text-align:center;">
+            <span class="contact__label">Email</span>
             <span class="contact__value">pamela@cupcakecutieco.com</span>
           </a>
 
-          <a class="card contact" href="#" data-instagram aria-label="Open Instagram @cupcakecutieco">
-            <span class="contact__label">
-              <svg class="ico ico--ig" viewBox="0 0 24 24" aria-hidden="true">
-                <defs>
-                  <linearGradient id="ig" x1="0" x2="1" y1="1" y2="0">
-                    <stop offset="0" stop-color="#feda75"/>
-                    <stop offset=".35" stop-color="#fa7e1e"/>
-                    <stop offset=".65" stop-color="#d62976"/>
-                    <stop offset="1" stop-color="#4f5bd5"/>
-                  </linearGradient>
-                </defs>
-                <path fill="url(#ig)" d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9A5.5 5.5 0 0 1 16.5 22h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2Zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9A3.5 3.5 0 0 0 20 16.5v-9A3.5 3.5 0 0 0 16.5 4h-9Zm4.5 3.5A4.5 4.5 0 1 1 7.5 12 4.5 4.5 0 0 1 12 7.5Zm0 2A2.5 2.5 0 1 0 14.5 12 2.5 2.5 0 0 0 12 9.5ZM17.75 6.75a1 1 0 1 1-1 1 1 1 0 0 1 1-1Z"/>
-              </svg>
+          <a
+            class="card contact"
+            href="https://www.instagram.com/cupcakecutieco"
+            target="_blank"
+            rel="noopener"
+            data-instagram
+            style="text-align:center;"
+          >
+            <span class="contact__label" style="display:inline-flex; align-items:center; justify-content:center;">
+              <span class="platform platform--ig" aria-hidden="true">
+                <!-- Instagram icon -->
+                <svg viewBox="0 0 24 24" width="16" height="16" focusable="false" aria-hidden="true">
+                  <path fill="currentColor" d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9A5.5 5.5 0 0 1 16.5 22h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9A3.5 3.5 0 0 0 20 16.5v-9A3.5 3.5 0 0 0 16.5 4h-9z"/>
+                  <path fill="currentColor" d="M12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/>
+                  <circle cx="17.6" cy="6.4" r="1.1" fill="currentColor"/>
+                </svg>
+              </span>
               Instagram
             </span>
             <span class="contact__value">@cupcakecutieco</span>
           </a>
         </div>
 
-        <div class="center mt-14">
-          <a href="#" class="btn btn--primary btn--lg" data-order-link>Plan Your Cupcakes</a>
+        <div class="center mt-14" style="text-align:center;">
+          <a
+            href="https://bakesy.shop/b/cupcake-cutie-co-gourmet-cupcakes"
+            class="btn btn--primary btn--lg"
+            data-order-link
+            target="_blank"
+            rel="noopener"
+          >Plan Your Cupcakes</a>
         </div>
       </div>
     </section>
@@ -370,13 +470,13 @@
   <!-- FOOTER (REQUIRED)             -->
   <!-- ============================= -->
   <footer class="site-footer" id="footer">
-    <div class="container footer__grid">
-      <div class="footer__brand">
+    <div class="container footer__grid" style="text-align:center;">
+      <div class="footer__brand" style="margin:0 auto;">
         <p class="footer__name">Cupcake Cutie Co.</p>
         <p class="footer__tagline">Gourmet Cupcakes • Custom Designs • Baked With Love</p>
       </div>
 
-      <div class="footer__meta">
+      <div class="footer__meta" style="margin:0 auto;">
         <p>© <span data-year></span> Cupcake Cutie Co. All rights reserved.</p>
         <a
           class="whisper"
@@ -390,12 +490,19 @@
 
   <!-- Mobile sticky CTA (single primary action on mobile) -->
   <div class="sticky-cta" role="region" aria-label="Order bar">
-    <div class="container sticky-cta__inner">
-      <div class="sticky-cta__text">
+    <div class="container sticky-cta__inner" style="justify-content:center; text-align:center;">
+      <div class="sticky-cta__text" style="text-align:center;">
         <strong>Order in under 2 minutes.</strong>
-        <span>Starting at $30+</span>
+        <!-- de-redundant per thread: keep logistics here instead of repeating price again -->
+        <span>Pickup available • Delivery for a fee over 15 miles</span>
       </div>
-      <a class="btn btn--primary" href="#" data-order-link>Order</a>
+      <a
+        class="btn btn--primary"
+        href="https://bakesy.shop/b/cupcake-cutie-co-gourmet-cupcakes"
+        data-order-link
+        target="_blank"
+        rel="noopener"
+      >Order Cupcakes</a>
     </div>
   </div>
 
