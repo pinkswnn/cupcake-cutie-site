@@ -5,12 +5,23 @@
     HUSTLE HUB SITES — CLIENT BUILD
     Client: Cupcake Cutie Co.
     Repo: cupcake-cutie-site/
+
+    Build goals (from this thread):
+    - Mobile-first, fast, clean
+    - One primary conversion goal: Bakesy Order
+    - Keep original copy intact (only add essentials: links + pickup/delivery clarity)
+    - Center-aligned presentation
   -->
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
+  <!-- SEO BASICS -->
   <title>Cupcake Cutie Co. | Gourmet Custom Cupcakes</title>
-  <meta name="description" content="Gourmet custom cupcakes baked fresh and decorated to match your celebration. 15+ flavors. Starting at $30+. Order on Bakesy.">
+  <meta
+    name="description"
+    content="Gourmet custom cupcakes baked fresh and decorated to match your celebration. 15+ flavors. Starting at $30+. Order on Bakesy."
+  >
   <meta name="robots" content="index,follow">
   <meta name="theme-color" content="#ff4fb6">
 
@@ -30,11 +41,16 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600&display=swap"
+    rel="stylesheet"
+  >
 
+  <!-- Core stylesheet + script -->
   <link rel="stylesheet" href="css/styles.css">
   <script defer src="js/main.js"></script>
 
+  <!-- Lightweight structured data -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -50,12 +66,23 @@
 </head>
 
 <body>
+  <!-- Invisible anchor for back-to-top -->
   <div id="top"></div>
 
+  <!-- ============================= -->
+  <!-- STICKY HEADER / NAV           -->
+  <!-- ============================= -->
   <header class="site-header site-header--sticky">
     <div class="container header__inner">
       <a href="#top" class="brand" aria-label="Cupcake Cutie Co. Home">
-        <img src="assets/logo.png" alt="Cupcake Cutie Co. logo" class="brand__logo" width="140" height="52" loading="lazy">
+        <img
+          src="assets/logo.png"
+          alt="Cupcake Cutie Co. logo"
+          class="brand__logo"
+          width="140"
+          height="52"
+          loading="lazy"
+        >
       </a>
 
       <nav class="nav" aria-label="Primary" data-nav>
@@ -67,7 +94,10 @@
         </ul>
       </nav>
 
-      <a href="#" class="btn btn--primary header__cta" data-order-link><span>Start Your Cupcake Order</span></a>
+      <!-- ONE primary CTA (desktop only; mobile uses sticky bar) -->
+      <a href="#" class="btn btn--primary header__cta" data-order-link>
+        <span>Start Your Cupcake Order</span>
+      </a>
 
       <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" data-nav-toggle>
         <span class="nav-toggle__bar"></span>
@@ -76,6 +106,9 @@
     </div>
   </header>
 
+  <!-- ============================= -->
+  <!-- HERO                          -->
+  <!-- ============================= -->
   <main>
     <section class="section section--hero" id="hero">
       <div class="container hero__grid">
@@ -111,13 +144,22 @@
 
         <div class="hero__media">
           <figure class="hero-image">
-            <img src="assets/hero.jpg" alt="Custom cupcakes with frosting and decorative details" loading="lazy">
-            <figcaption class="hero-image__caption">Sprinkled with cuteness. Baked with love.</figcaption>
+            <img
+              src="assets/hero.jpg"
+              alt="Custom cupcakes with frosting and decorative details"
+              loading="lazy"
+            >
+            <figcaption class="hero-image__caption">
+              Sprinkled with cuteness. Baked with love.
+            </figcaption>
           </figure>
         </div>
       </div>
     </section>
 
+    <!-- ============================= -->
+    <!-- HOW IT WORKS (SHORT)          -->
+    <!-- ============================= -->
     <section class="section" id="section-how">
       <div class="container section__narrow center">
         <header class="section__header">
@@ -157,6 +199,9 @@
       </div>
     </section>
 
+    <!-- ============================= -->
+    <!-- GALLERY                       -->
+    <!-- ============================= -->
     <section class="section section--gallery" id="section-gallery">
       <div class="container center">
         <header class="section__header section__header--center">
@@ -165,18 +210,34 @@
         </header>
 
         <div class="gallery__grid" aria-label="Cupcake gallery">
-          <figure class="gallery__item"><img src="assets/gallery-1.jpg" alt="Assorted cupcakes with piped frosting" loading="lazy"></figure>
-          <figure class="gallery__item"><img src="assets/gallery-2.jpg" alt="Cupcakes with detailed piped rosettes" loading="lazy"></figure>
-          <figure class="gallery__item"><img src="assets/gallery-3.jpg" alt="Cupcakes arranged in a box for an order" loading="lazy"></figure>
-          <figure class="gallery__item"><img src="assets/gallery-4.jpg" alt="Cupcakes with bright custom frosting colors" loading="lazy"></figure>
+          <figure class="gallery__item">
+            <img src="assets/gallery-1.jpg" alt="Assorted cupcakes with piped frosting" loading="lazy">
+          </figure>
+
+          <figure class="gallery__item">
+            <img src="assets/gallery-2.jpg" alt="Cupcakes with detailed piped rosettes" loading="lazy">
+          </figure>
+
+          <figure class="gallery__item">
+            <img src="assets/gallery-3.jpg" alt="Cupcakes arranged in a box for an order" loading="lazy">
+          </figure>
+
+          <figure class="gallery__item">
+            <img src="assets/gallery-4.jpg" alt="Cupcakes with bright custom frosting colors" loading="lazy">
+          </figure>
         </div>
 
         <div class="center mt-14">
-          <a class="link" href="#" data-google-reviews>See Google Reviews →</a>
+          <a class="link" href="#" data-google-reviews>
+            See Google Reviews →
+          </a>
         </div>
       </div>
     </section>
 
+    <!-- ============================= -->
+    <!-- FAQ                           -->
+    <!-- ============================= -->
     <section class="section section--faq" id="section-faq">
       <div class="container section__narrow center">
         <header class="section__header section__header--center">
@@ -191,7 +252,9 @@
               <span class="faq-item__icon" aria-hidden="true">+</span>
             </button>
             <div class="faq-item__panel" id="faq-1" hidden>
-              <p class="faq-item__answer">Yes. Add your theme notes when you order (colors, occasion, inspo). Cupcake Cutie will align the design so it looks intentional.</p>
+              <p class="faq-item__answer">
+                Yes. Add your theme notes when you order (colors, occasion, inspo). Cupcake Cutie will align the design so it looks intentional.
+              </p>
             </div>
           </div>
 
@@ -201,7 +264,9 @@
               <span class="faq-item__icon" aria-hidden="true">+</span>
             </button>
             <div class="faq-item__panel" id="faq-2" hidden>
-              <p class="faq-item__answer">15+ options (and growing).</p>
+              <p class="faq-item__answer">
+                15+ options (and growing).
+              </p>
             </div>
           </div>
 
@@ -211,7 +276,9 @@
               <span class="faq-item__icon" aria-hidden="true">+</span>
             </button>
             <div class="faq-item__panel" id="faq-3" hidden>
-              <p class="faq-item__answer">Use Bakesy. It keeps your order details organized and makes the process smooth from start to finish.</p>
+              <p class="faq-item__answer">
+                Use Bakesy. It keeps your order details organized and makes the process smooth from start to finish.
+              </p>
             </div>
           </div>
 
@@ -221,7 +288,9 @@
               <span class="faq-item__icon" aria-hidden="true">+</span>
             </button>
             <div class="faq-item__panel" id="faq-4" hidden>
-              <p class="faq-item__answer">Pickup is available. Delivery is available for a fee over 15 miles.</p>
+              <p class="faq-item__answer">
+                Pickup is available. Delivery is available for a fee over 15 miles.
+              </p>
             </div>
           </div>
 
@@ -231,13 +300,18 @@
               <span class="faq-item__icon" aria-hidden="true">+</span>
             </button>
             <div class="faq-item__panel" id="faq-5" hidden>
-              <p class="faq-item__answer">Text or email works. If you share your date + theme + quantity, Cupcake Cutie can point you to the best option quickly.</p>
+              <p class="faq-item__answer">
+                Text or email works. If you share your date + theme + quantity, Cupcake Cutie can point you to the best option quickly.
+              </p>
             </div>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- ============================= -->
+    <!-- CONTACT                        -->
+    <!-- ============================= -->
     <section class="section" id="section-contact">
       <div class="container section__narrow center">
         <header class="section__header">
@@ -268,7 +342,7 @@
 
           <a class="card contact" href="#" data-instagram aria-label="Open Instagram @cupcakecutieco">
             <span class="contact__label">
-              <svg class="ico" viewBox="0 0 24 24" aria-hidden="true">
+              <svg class="ico ico--ig" viewBox="0 0 24 24" aria-hidden="true">
                 <defs>
                   <linearGradient id="ig" x1="0" x2="1" y1="1" y2="0">
                     <stop offset="0" stop-color="#feda75"/>
@@ -292,6 +366,9 @@
     </section>
   </main>
 
+  <!-- ============================= -->
+  <!-- FOOTER (REQUIRED)             -->
+  <!-- ============================= -->
   <footer class="site-footer" id="footer">
     <div class="container footer__grid">
       <div class="footer__brand">
@@ -301,11 +378,17 @@
 
       <div class="footer__meta">
         <p>© <span data-year></span> Cupcake Cutie Co. All rights reserved.</p>
-        <a class="whisper" href="https://pinkswann.com/personal-and-business-foundations/" target="_blank" rel="noopener">Site Developed by HCH</a>
+        <a
+          class="whisper"
+          href="https://pinkswann.com/personal-and-business-foundations/"
+          target="_blank"
+          rel="noopener"
+        >Site Developed by HCH</a>
       </div>
     </div>
   </footer>
 
+  <!-- Mobile sticky CTA (single primary action on mobile) -->
   <div class="sticky-cta" role="region" aria-label="Order bar">
     <div class="container sticky-cta__inner">
       <div class="sticky-cta__text">
@@ -316,6 +399,7 @@
     </div>
   </div>
 
+  <!-- Back to top -->
   <button class="back-to-top" type="button" aria-label="Back to top" data-back-to-top>↑</button>
 </body>
 </html>
